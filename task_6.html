@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><a href="index.html">На головну</a></h1>
+    <p>
+      Полювання. Заєць знаходиться у верхньому лівому кутку поля. Поле
+      складається з двох рядків і двох стовпців. За один крок заєць може
+      стрибнути у будь-яку із вільних клітинок. Користувач ставить пастку
+      вказуючи номер рядка і стовпця клітинки. Якщо заєць потрапляє у пастку, то
+      користувач виграв і отримав 100 балів. Якщо користувач зловить зайця за
+      другою спробою, то одержує 50 балів.
+    </p>
+    <script>
+      let rabbitRow = 1;
+      let rabbitColumn = 1;
+      let trapRow = parseInt(prompt("Enter trap row (1-2)"));
+      let trapColumn = parseInt(prompt("Enter trap column (1-2)"));
+
+      let randomRabbitRow = 1 + Math.floor(Math.random() * (2 - 1 + 1));
+      let randomRabbitColumn = 1 + Math.floor(Math.random() * (2 - 1 + 1));
+
+      if (randomRabbitRow == rabbitRow && randomRabbitColumn == rabbitColumn) {
+        rabbitRow = 2;
+        rabbitColumn = 2;
+      } else {
+        rabbitRow = randomRabbitColumn;
+        rabbitColumn = rabbitColumn;
+      }
+
+      let result;
+
+      if (trapRow == rabbitRow && trapColumn == rabbitColumn)
+        result = "Catched - 100 points";
+      else {
+        result = "Not catched, one more try";
+        randomRabbitRow = 1 + Math.floor(Math.random() * (2 - 1 + 1));
+        randomRabbitColumn = 1 + Math.floor(Math.random() * (2 - 1 + 1));
+        if (
+          randomRabbitRow == rabbitRow &&
+          randomRabbitColumn == rabbitColumn
+        ) {
+          rabbitRow = 1;
+          rabbitColumn = 1;
+        } else {
+          rabbitRow = randomRabbitColumn;
+          rabbitColumn = rabbitColumn;
+        }
+        trapRow = parseInt(prompt(`${result} enter trap row (1-2)`));
+        trapColumn = parseInt(prompt(`${result} enter trap column (1-2)`));
+        if (trapRow == rabbitRow && trapColumn == rabbitColumn)
+          result = "Catched - 50 points";
+        else result = "You lose";
+      }
+      document.write(result);
+    </script>
+  </body>
+</html>

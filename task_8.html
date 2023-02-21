@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><a href="index.html">На головну</a></h1>
+    <p>
+      З клавіатури вводиться кількість сторін багатокутника. Необхідно вивести
+      назву фігури («трикутник», «чотирикутник», «п’ятикутинк», «шестикутник»).
+    </p>
+    <script>
+      const edgeNumber = parseInt(prompt("Enter the number of edges"));
+
+      let result;
+
+      switch (edgeNumber) {
+        case 3:
+          result = "Triangle";
+          break;
+        case 4:
+          result = "Rectangle";
+          break;
+        case 5:
+          result = "Pentagon";
+          break;
+        case 6:
+          result = "Hexagon";
+          break;
+        default:
+          result = "Wrong input";
+          break;
+      }
+      document.write(result);
+    </script>
+  </body>
+</html>

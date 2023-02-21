@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><a href="index.html">На головну</a></h1>
+    <p>
+      Комп’ютер загадує число від 1 до 10. Двоє користувачів надають свої
+      відповіді. Виграє той, у кого число знаходиться ближче до загаданого
+      комп’ютером числа.
+    </p>
+    <script>
+      const userNumber1 = parseInt(prompt("Enter number(1-10) user1"));
+      const userNumber2 = parseInt(prompt("Enter number(1-10) user2"));
+      const min = 1;
+      const max = 10;
+      const randomNumber = min + Math.floor(Math.random() * (max - min + 1));
+      
+		const userDif1 = Math.abs(randomNumber - userNumber1);
+      const userDif2 = Math.abs(randomNumber - userNumber2);
+
+      let result;
+      if (userDif1 < userDif2) result = "User 1 WON";
+      else if (userDif2 < userDif1) result = "User 2 WON";
+      else result = "You were close together";
+
+      document.write(result);
+    </script>
+  </body>
+</html>

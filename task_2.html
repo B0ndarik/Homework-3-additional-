@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><a href="index.html">На головну</a></h1>
+    <p>
+      Комп’ютер випадковим чином вибирає початок і кінець проміжку (проміжок
+      повинен знаходитися в межах від 1 до 100). Користувач вводить число і
+      виграє, якщо число знаходиться у цьому проміжку, або розташоване від нього
+      (від лівого або правого краю) не більше ніж на 10.
+    </p>
+    <script>
+      const userNumber = parseInt(prompt("Enter number (1-100)"));
+      const min = 1;
+      const max = 100;
+      const randomNumber1 = min + Math.floor(Math.random() * (max - min + 1));
+      const randomNumber2 = min + Math.floor(Math.random() * (max - min + 1));
+
+      let randomMin = randomNumber1;
+      let randomMax = randomNumber2;
+      if (randomNumber1 > randomNumber2) {
+        randomMin = randomNumber2;
+        randomMax = randomNumber1;
+      }
+      console.log(randomMin);
+      console.log(randomMax);
+
+      let result;
+      if (userNumber > randomMin - 10 && userNumber < randomMax + 10)
+        result = "You Win";
+      else result = "You lose";
+
+      document.write(result);
+    </script>
+  </body>
+</html>

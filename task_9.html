@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><a href="index.html">На головну</a></h1>
+    <p>
+      З клавіатури вводиться перша літера розширення файлу («html», «doc»,
+      «jpeg», «mp3», «xls»). Вивести на екран назву програми, яка може відкрити
+      цей тип файлу.
+    </p>
+    <script>
+      const extension = prompt("Enter first letter of files extension");
+
+      let result;
+      switch (extension) {
+        case "h":
+          result = "Google chrome";
+          break;
+        case "d":
+          result = "Word";
+          break;
+        case "j":
+          result = "Paint";
+          break;
+        case "m":
+          result = "Media Player";
+          break;
+        case "x":
+          result = "Excel";
+          break;
+        default:
+          result = "Wrong input";
+          break;
+      }
+      document.write(result);
+    </script>
+  </body>
+</html>
